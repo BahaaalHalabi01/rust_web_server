@@ -24,12 +24,12 @@ fn handle_connection(mut stream: TcpStream) {
     // message-body
     //
     // ex: HTTP/1.1 200 OK\r\n\r\n
-    let route_home: (String, String) =
-        (String::from("HTTP/1.1 200 OK"), String::from("index.html"));
-    let route_post: (String, String) = (String::from("HTTP/1.1 200 OK"), String::from("post.html"));
-    let route_404: (String, String) = (
-        String::from("HTTP/1.1 404 NOT FOUND"),
-        String::from("404.html"),
+    let route_home =
+        ("HTTP/1.1 200 OK","index.html");
+    let route_post = ("HTTP/1.1 200 OK","post.html");
+    let route_404  = (
+        "HTTP/1.1 404 NOT FOUND",
+        "404.html",
     );
     let mut buffer = [0; 1024];
     stream.read(&mut buffer).unwrap();
