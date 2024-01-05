@@ -39,6 +39,7 @@ impl ThreadPool {
     }
 }
 
+// * to not instantly drop threads when closing the server *
 impl Drop for ThreadPool {
     fn drop(&mut self) {
         for _ in &self.workers {
